@@ -43,6 +43,9 @@ Makefile
 cmake_install.cmake
 CTestTestfile.cmake
 
+# build
+**/build/
+
 # Otheres
 core
 .vscode

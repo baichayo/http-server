@@ -14,7 +14,7 @@ TimerNode::TimerNode(std::shared_ptr<HttpData> requestData, int timeout)
                    timeout;
 }
 
-TimerNode::TimerNode(TimerNode &tn)
+TimerNode::TimerNode(const TimerNode &tn)
     : SPHttpData(tn.SPHttpData), expiredTime_(0)
 {
 }

@@ -10,16 +10,6 @@
 
 class HttpData;
 
-class TimerNode;
-struct TimerCmp
-{
-    bool operator()(std::shared_ptr<TimerNode> &a,
-                    std::shared_ptr<TimerNode> &b) const
-    {
-        return a->getExpTime() > b->getExpTime();
-    }
-};
-
 class TimerNode
 {
 public:
@@ -38,6 +28,15 @@ private:
     bool deleted_;
     size_t expiredTime_;
     std::shared_ptr<HttpData> SPHttpData;
+};
+
+struct TimerCmp
+{
+    bool operator()(std::shared_ptr<TimerNode> &a,
+                    std::shared_ptr<TimerNode> &b) const
+    {
+        return a->getExpTime() > b->getExpTime();
+    }
 };
 
 class TimerManager
