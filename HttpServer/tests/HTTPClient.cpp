@@ -69,7 +69,11 @@ int main(int argc, char *argv[])
     {
         perror("err1");
     }
+
+    puts("\n**********分割线************\n");
     sleep(1);
+
+    
 
     // 发"GET  HTTP/1.1"
     p = "GET  HTTP/1.1";
@@ -90,14 +94,16 @@ int main(int argc, char *argv[])
     {
         perror("err2");
     }
+
+    puts("\n**********分割线************\n");
     sleep(1);
 
     // 发
     // GET  HTTP/1.1
-    // Host: 192.168.52.135:8888
+    // Host: 192.168.52.135:12345
     // Content-Type: application/x-www-form-urlencoded
     // Connection: Keep-Alive
-    p = "GET / HTTP/1.1\r\nHost: 192.168.52.135:8888\r\nContent-Type: "
+    p = "GET / HTTP/1.1\r\nHost: 127.0.0.1:12345\r\nContent-Type: "
         "application/x-www-form-urlencoded\r\nConnection: Keep-Alive\r\n\r\n";
     sockfd = socket(AF_INET, SOCK_STREAM, 0);
     if (connect(sockfd, (struct sockaddr *)&servaddr, sizeof(servaddr)) == 0)
@@ -116,6 +122,9 @@ int main(int argc, char *argv[])
     {
         perror("err3");
     }
+
+    puts("");
+
     return 0;
 }
 

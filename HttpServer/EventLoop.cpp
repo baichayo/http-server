@@ -11,7 +11,7 @@ __thread EventLoop *t_loopInThisThread = 0;
 
 //用于多线程或多进程间的异步事件通知，
 //允许一个线程或进程等待另一个线程或进程的事件发生，而无需使用显式的锁来同步
-int createEventfd()
+int createEventfd() // 唤醒 阻塞的 epoll_wait() ，一般做法是往管道写一个字节
 {
     int evtfd = eventfd(0, EFD_NONBLOCK | EFD_CLOEXEC);
     if (evtfd < 0)
